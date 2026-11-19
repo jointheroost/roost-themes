@@ -1,0 +1,73 @@
+/*
+ * Almanac: printed-page details that tokens cannot say.
+ * Hooks: public tokens and data-slot attributes only (docs/dev/theme-hooks.md in the Roost repo).
+ * Class names change between builds, so nothing here uses them.
+ */
+
+@font-face {
+	font-family: "Almanac Plex Mono";
+	src: url("assets/fonts/ibm-plex-mono-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Almanac Plex Mono";
+	src: url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+::selection {
+	background: var(--r-text);
+	color: var(--r-canvas);
+}
+
+/* The time line of a message reads as type set in mono capitals. */
+[data-slot="message-meta"] {
+	font-family: var(--r-font-mono);
+	letter-spacing: var(--r-tracking-wide);
+	text-transform: uppercase;
+}
+
+/* The active sidebar row is inked in. */
+[data-slot="sidebar-row"][data-active] {
+	--r-muted: color-mix(in srgb, var(--r-canvas) 72%, var(--r-text));
+	background: var(--r-text);
+	color: var(--r-canvas);
+}
+
+[data-slot="sidebar-row"] {
+	border-bottom: 1px solid var(--r-line);
+}
+
+/* The person's message is a card with a hard shadow. */
+[data-slot="message"][data-role="person"] [data-slot="message-bubble"] {
+	background: var(--r-bubble-user);
+	border: 1px solid var(--r-text);
+	box-shadow: 4px 4px 0 var(--r-text);
+}
+
+/* Task cards are ruled boxes; the status mark is a small square. */
+[data-slot="task-card"] {
+	border: 1px solid var(--r-text);
+	box-shadow: none;
+}
+
+[data-slot="task-card"][data-state="needs-you"] {
+	background: color-mix(in srgb, var(--r-accent) 12%, var(--r-canvas));
+}
+
+[data-slot="composer"] {
+	border: 1px solid var(--r-text);
+}
+
+[data-slot="composer-send"] {
+	font-weight: 600;
+}
+
+[data-slot="avatar"] {
+	border-radius: 999px;
+}

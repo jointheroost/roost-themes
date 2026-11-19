@@ -1,0 +1,12 @@
+Roost themes
+Copyright 2026 The Roost authors
+
+The themes tidepool, almanac, and phosphor in themes/ were written
+for Roost and are licensed under the Apache License, Version 2.0
+(see LICENSE), except for these bundled fonts, which keep the SIL
+Open Font License, Version 1.1. The license text is in each font
+folder:
+
+  themes/almanac/assets/fonts    IBM Plex Mono, Copyright 2017 IBM Corp.
+  themes/phosphor/assets/fonts   JetBrains Mono, Copyright 2020 The
+                                 JetBrains Mono Project Authors

@@ -1,0 +1,82 @@
+/*
+ * Phosphor: terminal details that tokens cannot say.
+ * Hooks: public tokens and data-slot attributes only (docs/dev/theme-hooks.md in the Roost repo).
+ * Class names change between builds, so nothing here uses them.
+ */
+
+@font-face {
+	font-family: "Phosphor JetBrains Mono";
+	src: url("assets/fonts/jetbrains-mono-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Phosphor JetBrains Mono";
+	src: url("assets/fonts/jetbrains-mono-700.woff2") format("woff2");
+	font-weight: 600 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+::selection {
+	background: var(--r-accent);
+	color: var(--r-canvas);
+}
+
+/* A faint glow on text, as on a phosphor tube. Small enough to keep edges sharp. */
+[data-slot="message-list"],
+[data-slot="sidebar"] {
+	text-shadow: 0 0 6px rgb(114 245 143 / 0.18);
+}
+
+/* Shell labels in lower case. Message text keeps its case. */
+[data-slot="sidebar"],
+[data-slot="chat-header"],
+[data-slot="message-meta"],
+[data-slot="task-card"] {
+	text-transform: lowercase;
+}
+
+[data-slot="sidebar-row"][data-active] {
+	background: var(--r-active);
+	box-shadow: inset 2px 0 0 var(--r-accent);
+}
+
+/* The person's message: a quoted block with a bar, no bubble. */
+[data-slot="message"][data-role="person"] [data-slot="message-bubble"] {
+	background: transparent;
+	border-left: 2px solid var(--r-line-strong);
+	box-shadow: none;
+}
+
+[data-slot="message"][data-role="bot"] [data-slot="message-meta"] {
+	color: var(--r-accent);
+}
+
+[data-slot="task-card"] {
+	border: 1px dashed var(--r-line-strong);
+	box-shadow: none;
+	margin-bottom: var(--r-space-1);
+}
+
+[data-slot="task-card"][data-active] {
+	border-style: solid;
+	border-color: var(--r-accent);
+}
+
+[data-slot="task-card"][data-state="needs-you"] {
+	border-color: var(--r-warning);
+	background: color-mix(in srgb, var(--r-warning) 8%, var(--r-canvas));
+}
+
+/* The caret takes the phosphor green. */
+[data-slot="composer-input"] {
+	caret-color: var(--r-accent);
+}
+
+[data-slot="composer-send"] {
+	background: var(--r-accent);
+	color: var(--r-canvas);
+}
